@@ -40,7 +40,8 @@ export default function OrderTableRow({
   onSelectRow,
   onDeleteRow,
 }: Props) {
-  const { items, status, orderNumber, createdAt, customer, totalQuantity, subTotal, shippingAddress } = row;
+  const { items, status, orderNumber, createdAt, customer, totalQuantity, subTotal } = row;
+
   const confirm = useBoolean();
 
   const collapse = useBoolean();
@@ -94,7 +95,6 @@ export default function OrderTableRow({
         />
       </TableCell>
 
-      <TableCell align="center"> {shippingAddress.fullAddress} </TableCell>
       <TableCell align="center"> {totalQuantity} </TableCell>
 
       <TableCell> {fCurrency(subTotal)} </TableCell>
@@ -135,7 +135,7 @@ export default function OrderTableRow({
 
   const renderSecondary = (
     <TableRow>
-      <TableCell sx={{ p: 0, border: 'none' }} colSpan={9}>
+      <TableCell sx={{ p: 0, border: 'none' }} colSpan={8}>
         <Collapse
           in={collapse.value}
           timeout="auto"

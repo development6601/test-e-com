@@ -40,25 +40,25 @@ export default function EcommerceCurrentBalance({
 
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Returned
+            Earning
           </Typography>
           <Typography variant="body2">- {fCurrency(sentAmount)}</Typography>
         </Stack>
 
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Total 
+            Refunded
           </Typography>
           <Typography variant="subtitle1">{fCurrency(totalAmount)}</Typography>
         </Stack>
 
         <Stack direction="row" spacing={1.5}>
-          <Button fullWidth variant="contained" color="success">
-            Orders
+          <Button fullWidth variant="contained" color="warning">
+            Request
           </Button>
 
-          <Button fullWidth variant="contained" color="error">
-            Returns
+          <Button fullWidth variant="contained" color="primary">
+            Transfer
           </Button>
         </Stack>
       </Stack>

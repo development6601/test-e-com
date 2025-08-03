@@ -22,9 +22,8 @@ export default function AppWelcome({ title, description, action, img, ...other }
       sx={{
         ...bgGradient({
           direction: '135deg',
-          startColor: alpha(theme.palette.grey[900], 0.8),
-          endColor: theme.palette.grey[900],
-          imgUrl: 'https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/background/background-5.webp',
+          startColor: alpha(theme.palette.primary.light, 0.2),
+          endColor: alpha(theme.palette.primary.main, 0.2),
         }),
         height: { md: 1 },
         borderRadius: 2,
@@ -46,7 +45,7 @@ export default function AppWelcome({ title, description, action, img, ...other }
           textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Typography variant="h4" sx={{ mb: 2, whiteSpace: 'pre-line', color: 'common.white' }}>
+        <Typography variant="h4" sx={{ mb: 2, whiteSpace: 'pre-line' }}>
           {title}
         </Typography>
 
@@ -56,7 +55,6 @@ export default function AppWelcome({ title, description, action, img, ...other }
             opacity: 0.8,
             maxWidth: 360,
             mb: { xs: 3, xl: 5 },
-            color: 'common.white',
           }}
         >
           {description}

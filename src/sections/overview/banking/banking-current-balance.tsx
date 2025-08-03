@@ -57,13 +57,11 @@ export default function BankingCurrentBalance({ list, sx }: Props) {
           imgUrl: '/assets/background/overlay_2.jpg',
         }),
         height: 262,
-        maxHeight: '320px',
         borderRadius: 2,
         position: 'relative',
         color: 'common.white',
         '.slick-slider, .slick-list, .slick-track, .slick-slide > div': {
-          height: 1,          
-          maxHeight: '320px',
+          height: 1,
         },
         '&:before, &:after': {
           left: 0,

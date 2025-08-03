@@ -67,12 +67,12 @@ function ProductItem({ product }: ProductItemProps) {
         secondary={
           <>
             {!!priceSale && (
-              <Box component="span" sx={{ textDecoration: 'line-through', mr: 0.5, color: 'error.main' }}>
+              <Box component="span" sx={{ textDecoration: 'line-through', mr: 0.5 }}>
                 {fCurrency(priceSale)}
               </Box>
             )}
 
-            <Box component="span" sx={{ color: 'text.secondary' }}>
+            <Box component="span" sx={{ color: priceSale ? 'error.main' : 'text.secondary' }}>
               {fCurrency(price)}
             </Box>
           </>

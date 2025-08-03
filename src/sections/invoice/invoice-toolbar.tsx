@@ -94,7 +94,7 @@ export default function InvoiceToolbar({
             </IconButton>
           </Tooltip>
 
-          {/* <Tooltip title="Send">
+          <Tooltip title="Send">
             <IconButton>
               <Iconify icon="iconamoon:send-fill" />
             </IconButton>
@@ -104,7 +104,7 @@ export default function InvoiceToolbar({
             <IconButton>
               <Iconify icon="solar:share-bold" />
             </IconButton>
-          </Tooltip> */}
+          </Tooltip>
         </Stack>
 
         <TextField

@@ -1,5 +1,6 @@
 'use client';
 
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
@@ -8,20 +9,20 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 
 import { SeoIllustration } from 'src/assets/illustrations';
-import { _appFeatured, _appInvoices, _ecommerceLatestProducts, _orders } from 'src/_mock';
+import { _appAuthors, _appRelated, _appFeatured, _appInvoices, _appInstalled } from 'src/_mock';
 
 import { useSettingsContext } from 'src/components/settings';
 
+import AppWidget from '../app-widget';
 import AppWelcome from '../app-welcome';
 import AppFeatured from '../app-featured';
 import AppNewInvoice from '../app-new-invoice';
+import AppTopAuthors from '../app-top-authors';
+import AppTopRelated from '../app-top-related';
 import AppAreaInstalled from '../app-area-installed';
 import AppWidgetSummary from '../app-widget-summary';
 import AppCurrentDownload from '../app-current-download';
-import EcommerceCurrentBalance from '../../e-commerce/ecommerce-current-balance';
-import EcommerceLatestProducts from '../../e-commerce/ecommerce-latest-products';
-import EcommerceLatestOrders from '../../e-commerce/ecommerce-latest-orders';
-import EcommerceLatestInvoices from '../../e-commerce/ecommerce-latest-invoices';
+import AppTopInstalledCountries from '../app-top-installed-countries';
 
 // ----------------------------------------------------------------------
 
@@ -54,7 +55,7 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Monthly Orders"
+            title="Total Active Users"
             percent={2.6}
             total={18765}
             chart={{
@@ -65,7 +66,7 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total Revenue"
+            title="Total Installed"
             percent={0.2}
             total={4876}
             chart={{
@@ -77,7 +78,7 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="New users this month"
+            title="Total Downloads"
             percent={-0.1}
             total={678}
             chart={{
@@ -89,13 +90,13 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={4}>
           <AppCurrentDownload
-            title="Order summary"
+            title="Current Download"
             chart={{
               series: [
-                { label: 'Rings', value: 12244 },
-                { label: 'Bracelets', value: 53345 },
-                { label: 'Earrings', value: 44313 },
-                { label: 'Necklaces', value: 78343 },
+                { label: 'Mac', value: 12244 },
+                { label: 'Window', value: 53345 },
+                { label: 'iOS', value: 44313 },
+                { label: 'Android', value: 78343 },
               ],
             }}
           />
@@ -103,7 +104,7 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={8}>
           <AppAreaInstalled
-            title="Order Places"
+            title="Area Installed"
             subheader="(+43%) than last year"
             chart={{
               categories: [
@@ -152,40 +153,53 @@ export default function OverviewAppView() {
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={4}>
-          <EcommerceLatestOrders
-            id="demo__5"
-            title="Latest Orders"
-            list={_orders.slice(0, 5) as any}
-          />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <EcommerceLatestProducts
-            id="demo__5"
-            title="Latest Products"
-            list={_ecommerceLatestProducts.slice(0, 5)}
-          />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <EcommerceLatestInvoices
-            id="demo__5"
-            title="Invoices"
-            list={_appInvoices.slice(0, 5) as any}
-          />
-        </Grid>
-
         <Grid xs={12} lg={8}>
-          <div> </div>
+          <AppNewInvoice
+            title="New Invoice"
+            tableData={_appInvoices}
+            tableLabels={[
+              { id: 'id', label: 'Invoice ID' },
+              { id: 'category', label: 'Category' },
+              { id: 'price', label: 'Price' },
+              { id: 'status', label: 'Status' },
+              { id: '' },
+            ]}
+          />
         </Grid>
 
         <Grid xs={12} md={6} lg={4}>
-          <EcommerceCurrentBalance
-            title="Monthly Revenue"
-            currentBalance={187650}
-            sentAmount={25500}
-          />
+          <AppTopRelated title="Top Related Applications" list={_appRelated} />
+        </Grid>
+
+        <Grid xs={12} md={6} lg={4}>
+          <AppTopInstalledCountries title="Top Installed Countries" list={_appInstalled} />
+        </Grid>
+
+        <Grid xs={12} md={6} lg={4}>
+          <AppTopAuthors title="Top Authors" list={_appAuthors} />
+        </Grid>
+
+        <Grid xs={12} md={6} lg={4}>
+          <Stack spacing={3}>
+            <AppWidget
+              title="Conversion"
+              total={38566}
+              icon="solar:user-rounded-bold"
+              chart={{
+                series: 48,
+              }}
+            />
+
+            <AppWidget
+              title="Applications"
+              total={55566}
+              icon="fluent:mail-24-filled"
+              color="info"
+              chart={{
+                series: 75,
+              }}
+            />
+          </Stack>
         </Grid>
       </Grid>
     </Container>

@@ -107,7 +107,7 @@ export default function InvoiceTableRow({
 
         <TableCell>{fCurrency(totalAmount)}</TableCell>
 
-        {/* <TableCell align="center">{sent}</TableCell> */}
+        <TableCell align="center">{sent}</TableCell>
 
         <TableCell>
           <Label
@@ -146,7 +146,7 @@ export default function InvoiceTableRow({
           View
         </MenuItem>
 
-        {/* <MenuItem
+        <MenuItem
           onClick={() => {
             onEditRow();
             popover.onClose();
@@ -154,7 +154,7 @@ export default function InvoiceTableRow({
         >
           <Iconify icon="solar:pen-bold" />
           Edit
-        </MenuItem> */}
+        </MenuItem>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 

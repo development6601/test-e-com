@@ -1,0 +1,11 @@
+/* scrollbar */
+@import 'simplebar-react/dist/simplebar.min.css';
+
+
+.slick-track{
+    display: flex;
+}
+
+.slick-list{
+    overflow: hidden;
+}
